@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipe';
+    currentLink: string;
+
+    onRecipiesClicked(titleClicked) {
+        this.currentLink = titleClicked;
+        console.log(this.currentLink);
+    }
+
+    onListClicked(titleClicked) {
+        this.currentLink = titleClicked;
+        console.log(this.currentLink);
+    }
 }
