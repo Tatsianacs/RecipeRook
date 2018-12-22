@@ -7,14 +7,10 @@ import {Component, EventEmitter, Output} from "@angular/core";
     styleUrls:['./header.component.css']
 })
 export class HeaderComponent {
-    @Output() recipesClicked = new EventEmitter<string>();
-    @Output() listClicked = new EventEmitter<string>();
+    @Output() featureSelected = new EventEmitter<string>();
 
-    onRecipesClick(){
-        this.recipesClicked.emit('recipes');
+    onSelect(feature: string){
+        this.featureSelected.emit(feature);
     }
 
-    onListClick() {
-        this.listClicked.emit('list');
-    }
 }

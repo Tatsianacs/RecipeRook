@@ -6,15 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    currentLink: string;
+    loadedFeature = 'recipe';
 
-    onRecipiesClicked(titleClicked) {
-        this.currentLink = titleClicked;
-        console.log(this.currentLink);
+    onNavigate(feature: string) {
+        this.loadedFeature = feature;
     }
 
-    onListClicked(titleClicked) {
-        this.currentLink = titleClicked;
-        console.log(this.currentLink);
-    }
 }
