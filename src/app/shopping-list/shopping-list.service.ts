@@ -16,4 +16,9 @@ export class ShoppingListService {
     getIngredients() {
         return this.ingredients.slice(); //if we want to have it updated. we shouldn't use SLICE
     }
+
+    addIngFromRecipe(ing: Ingredient[]) {
+        this.ingredients.push(...ing);
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
 }
