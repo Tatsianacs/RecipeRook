@@ -8,7 +8,7 @@ import {RecipeService} from "../../recipe.service";
     styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-    @Input('recipeElem') element: Recipe; //add data from outside
+    @Input('recipeElem')  element: Recipe; //add data from outside
     // @Output() recipeSelected = new EventEmitter<void>(); old way before Services
 
     constructor(private recipeService: RecipeService) {
