@@ -24,6 +24,10 @@ export class RecipeService {
         return this.recipes.slice(); //new array so that it is not shared
     }
 
+    getRecipeById(id: number) {
+        return this.recipes[id]; // we can do here Object.assign or slice()
+    }
+
     addIngToShoppingList(ings: Ingredient[]) {
         this.shoppingListService.addIngFromRecipe(ings);
     }
