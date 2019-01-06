@@ -47,4 +47,9 @@ export class RecipeService {
         this.recipes.splice(index, 1);
         this.recipesChanged.next(this.recipes.slice());
     }
+
+    updateRecipiesByFetch(recipies: Recipe[]) {
+        this.recipes = recipies;
+        this.recipesChanged.next(this.recipes.slice());
+    }
 }

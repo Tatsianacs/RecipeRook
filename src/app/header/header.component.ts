@@ -18,4 +18,9 @@ export class HeaderComponent {
         this.dataStorageService.storeRecipes()
             .subscribe((response: Response) => console.log(response)); //subscribe here if we want to handle response in component e.g. to handle errors
     }
+
+    onFetchData() {
+        this.dataStorageService.fetchRecipes();
+        console.log('button is clicked');
+    }
 }
