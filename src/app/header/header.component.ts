@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Output} from "@angular/core";
+import {DataStorageService} from "../shared/data-storage.service";
+import { Response } from '@angular/http';
 
 
 @Component({
@@ -8,4 +10,12 @@ import {Component, EventEmitter, Output} from "@angular/core";
 })
 export class HeaderComponent {
 
+    constructor(private dataStorageService: DataStorageService) {
+
+    }
+
+    onSaveData() {
+        this.dataStorageService.storeRecipes()
+            .subscribe((response: Response) => console.log(response)); //subscribe here if we want to handle response in component e.g. to handle errors
+    }
 }
