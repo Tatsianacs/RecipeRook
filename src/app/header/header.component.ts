@@ -24,5 +24,7 @@ export class HeaderComponent {
         console.log('button is clicked');
     }
 
-
+    onLogout() {
+        this.authService.logout();
+    }
 }
