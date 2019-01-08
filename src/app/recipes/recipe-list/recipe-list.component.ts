@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Recipe} from "../recipe.model";
 import {RecipeService} from "../recipe.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ActivateRoutes} from "@angular/router/src/operators/activate_routes";
 import {Subscription} from "rxjs";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
     selector: 'app-recipe-list',
@@ -15,7 +15,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     recipes: Recipe[];
     subscription: Subscription;
 
-    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute) {}
+    constructor(private recipeService: RecipeService, private router: Router, private route: ActivatedRoute, private authService: AuthService) {
+    }
+
     //
     // recipes: Recipe[] = [
     //     new Recipe('Draniki', 'Draniki is one of the most popular and famous dishes of the Belarusian cuisine.\n' +
@@ -41,7 +43,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
     //     this.recipeWasSelected.emit(recipe);
     // }
     onNewRecipe() {
-        this.router.navigate(['new'],{relativeTo: this.route});
+        if (this.authService.isAuthenticated()) {
+            this.router.navigate(['new'], {relativeTo: this.route});
+        } else {
+            this.router.navigate(['signin']);
+        }
     }
 
     ngOnDestroy() {
